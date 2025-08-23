@@ -1,9 +1,13 @@
 .navbarcont{
-    background:linear-gradient(45deg,#eeeeee,#f1f7f7);
+    background:linear-gradient(45deg,#737374be,#dcdcde);
+}
+.boxlogo{
+    margin-top: 0;
+    display: f;
 }
 .li{
     list-style-type: none;
-    display: flex;justify-content:space-around;
+    display: flex;
 }
 .li li{
   font-family: "Lato", sans-serif;
@@ -16,4 +20,7 @@
     color:rgb(189, 187, 189);
     cursor:pointer;
     
+}
+ul.li div{
+    margin: 10px 0;
 }

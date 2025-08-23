@@ -9,5 +9,5 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrls: ['./navbar.css']
 })
 export class Navbar {
-  logoUrl = '/icons/baner.png'; 
+  logoUrl = '/icons/baner-Photoroom.png'; 
 }
