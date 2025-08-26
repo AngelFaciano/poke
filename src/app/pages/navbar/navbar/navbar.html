@@ -19,5 +19,20 @@
             </div>
         </ul>
     </div>
-
 </nav>
+ <img [ngSrc]="logoUrl" width="120" height="60" alt="Logo" />
+
+  <input
+  type="text"
+  placeholder="Escribí un Pokémon..."
+  #pokeInput
+/>
+<button type="button" (click)="search(pokeInput.value)">
+  Buscar
+</button>
+  @if (data(); as p) {
+    <h2>{{ p.name | titlecase }}</h2>
+    <img [ngSrc]="p.sprites.front_default" width="120" height="120" alt="{{p.name}}" />
+  } @else {
+    <p>Escribí un Pokémon 👆</p>
+  }
