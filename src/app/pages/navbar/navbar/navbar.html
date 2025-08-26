@@ -32,6 +32,7 @@
 </button>
   @if (data(); as p) {
     <h2>{{ p.name | titlecase }}</h2>
+    <p>{{p.stats | json }}s</p>
     <img [ngSrc]="p.sprites.front_default" width="120" height="120" alt="{{p.name}}" />
   } @else {
     <p>Escribí un Pokémon 👆</p>
