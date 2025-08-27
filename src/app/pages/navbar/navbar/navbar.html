@@ -31,8 +31,8 @@
 @for(i of [0,1,2,3,4,5]; track i){
 <p>{{p.stats[i].base_stat | json }}s</p>
 <div class="progress-bar progress-bar-striped bg-info custom" role="progressbar" [style.width.%]="p.stats[i].base_stat"
-  [attr.aria-valuenow]="p.stats[i].base_stat" aria-valuemin="0" aria-valuemax="100">
-  {{ p.stats[i].base_stat}}
+  [attr.aria-valuenow]="p.stats[i].base_stat" aria-valuemin="0" aria-valuemax="1030">
+  {{ p.stats[i].base_stat}}s
 </div>
 <div class="progress">
   <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 10%" aria-valuenow="10"
