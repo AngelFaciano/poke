@@ -1,39 +1,46 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-    rel="stylesheet">
+  href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+  rel="stylesheet">
 <nav class="navbarcont">
-    <div>
-        <ul class="li">
-            <div class="boxlogo">
-                    <img [ngSrc]="logoUrl" class="logo" width="65" height="32" alt="Logo PoKeAttack" class="rounded" />
-                    <span class="font-bold text-lg">PoKeAttack</span>                
-            </div>
-            <div class="nav">
-                <li><span class="font-bold text-lg">Region</span></li>
-                <li><span class="font-bold text-lg">Tipos</span></li>
-                <li><span class="font-bold text-lg">Debilidades</span></li>
-                <li><span class="font-bold text-lg">Peleas</span></li>
-                <li> <button type="button" class="btn btn-success">Login</button></li>
-            </div>
-        </ul>
-    </div>
+  <div>
+    <ul class="li">
+      <div class="boxlogo">
+        <img [ngSrc]="logoUrl" class="logo" width="65" height="32" alt="Logo PoKeAttack" class="rounded" />
+        <span class="font-bold text-lg">PoKeAttack</span>
+      </div>
+      <div class="nav">
+        <li><span class="font-bold text-lg">Region</span></li>
+        <li><span class="font-bold text-lg">Tipos</span></li>
+        <li><span class="font-bold text-lg">Debilidades</span></li>
+        <li><span class="font-bold text-lg">Peleas</span></li>
+        <li> <button type="button" class="btn btn-success">Login</button></li>
+      </div>
+    </ul>
+  </div>
 </nav>
- <img [ngSrc]="logoUrl" width="120" height="60" alt="Logo" />
+<img [ngSrc]="logoUrl" width="120" height="60" alt="Logo" />
 
-  <input
-  type="text"
-  placeholder="Escribí un Pokémon..."
-  #pokeInput
-/>
+<input type="text" placeholder="Escribí un Pokémon..." #pokeInput />
 <button type="button" (click)="search(pokeInput.value)">
   Buscar
 </button>
-  @if (data(); as p) {
-    <h2>{{ p.name | titlecase }}</h2>
-    <p>{{p.stats | json }}s</p>
-    <img [ngSrc]="p.sprites.front_default" width="120" height="120" alt="{{p.name}}" />
-  } @else {
-    <p>Escribí un Pokémon 👆</p>
-  }
+@if (data(); as p) {
+<h2>{{ p.name | titlecase }}</h2>
+@for(i of [0,1,2,3,4,5]; track i){
+<p>{{p.stats[i].base_stat | json }}s</p>
+<div class="progress-bar progress-bar-striped bg-info custom" role="progressbar" [style.width.%]="p.stats[i].base_stat"
+  [attr.aria-valuenow]="p.stats[i].base_stat" aria-valuemin="0" aria-valuemax="100">
+  {{ p.stats[i].base_stat}}
+</div>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 10%" aria-valuenow="10"
+    aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+}
+
+<img [ngSrc]="p.sprites.front_default" width="120" height="120" alt="{{p.name}}" />
+} @else {
+<p>Escribí un Pokémon 👆</p>
+}
