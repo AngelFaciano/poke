@@ -66,7 +66,7 @@ body{
   font-size: 14px;
   color:#FFFFFF; /* mejor contraste sobre la barra clara */
 }
-
+.a{color: #FFFFFF;}
 /* --- IMAGEN CENTRAL --- */
 .art {
   display: flex;

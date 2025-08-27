@@ -1,5 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
 import { Pokemon } from '../../interface/pokemon';
+import { PokeService } from '../../service/poke.service';
+import { SeachPokeService } from '../../service/seachPoke.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-infopoke',
@@ -9,24 +12,18 @@ import { Pokemon } from '../../interface/pokemon';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class InfopokeComponent {
-  pokemon: Pokemon = {
-  id: 25,
-  name: 'pikachu',
-  height: 4,
-  weight: 60,
-  base_experience: 112,
-  sprites: {
-    front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
-    other: {
-      'official-artwork': {
-        front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png'
+export class InfopokeComponent {data$!: Observable<any>;
+   datas = signal(null);
+ constructor(private poke:SeachPokeService){
+   
+
+  effect(() => {
+      const name = this.poke.getPokemonId(1);
+      if (!name) {
+        this.datas.set(name);
+        return;
       }
-    }
-  },
-  types: [ { type: { name: 'electric' } } ],
-  abilities: [ { ability: { name: 'static' } } ],
-  moves: [ { move: { name: 'quick-attack' } } ],
-  stats: [ { base_stat: 55, stat: { name: 'attack' } } ]
-};
+    });
+      
+ }
 }
