@@ -4,68 +4,69 @@
 
     <!-- IZQUIERDA: Stats -->
     <section class="card">
-      <h3>Estadísticas base</h3>
-      <p>@if (datas(); as p){
-        <p>{{p}}</p>
-        } 
+      <h3 class="fw-bold text-uppercase">Estadísticas base de {{data().name}}</h3>
+      <ul>
+
+      </ul>
       <div class="stats-list">
-  <div class="stat">
-    <div class="stat-name">HP</div>
-    <div class="bar">
-      <div class="fill" style="width:35%"></div>
-      <div class="stat-val">35</div>
-    </div>
-  </div>
+        <div class="stat">
+          <div class="stat-name">HP</div>
+          <div class="bar">
+            <div class="fill" [style.width.%]="p/225*100"></div>
+            <div class="stat-val">{{p}}</div>
+          </div>
+        </div>
 
-  <div class="stat">
-    <div class="stat-name">Attack</div>
-    <div class="bar">
-      <div class="fill" style="width:55%"></div>
-      <div class="stat-val">55</div>
-    </div>
-  </div>
+        <div class="stat">
+          <div class="stat-name">Attack</div>
+          <div class="bar">
+            <div class="fill" style="width:55%"></div>
+            <div class="stat-val">55</div>
+          </div>
+        </div>
 
-  <div class="stat">
-    <div class="stat-name">Defense</div>
-    <div class="bar">
-      <div class="fill" style="width:40%"></div>
-      <div class="stat-val">40</div>
-    </div>
-  </div>
+        <div class="stat">
+          <div class="stat-name">Defense</div>
+          <div class="bar">
+            <div class="fill" style="width:40%"></div>
+            <div class="stat-val">40</div>
+          </div>
+        </div>
 
-  <div class="stat">
-    <div class="stat-name">Special Attack</div>
-    <div class="bar">
-      <div class="fill" style="width:50%"></div>
-      <div class="stat-val">50</div>
-    </div>
-  </div>
+        <div class="stat">
+          <div class="stat-name">Special Attack</div>
+          <div class="bar">
+            <div class="fill" style="width:50%"></div>
+            <div class="stat-val">50</div>
+          </div>
+        </div>
 
-  <div class="stat">
-    <div class="stat-name">Special Defense</div>
-    <div class="bar">
-      <div class="fill" style="width:50%"></div>
-      <div class="stat-val">50</div>
-    </div>
-  </div>
+        <div class="stat">
+          <div class="stat-name">Special Defense</div>
+          <div class="bar">
+            <div class="fill" style="width:50%"></div>
+            <div class="stat-val">50</div>
+          </div>
+        </div>
 
-  <div class="stat">
-    <div class="stat-name">Speed</div>
-    <div class="bar">
-      <div class="fill" [style.width.%]="(30/255) * 100"
-  [attr.aria-valuenow]="30"aria-valuemin="0" aria-valuemax="30"></div>
-      <div class="stat-val">90</div>
-    </div>
-  </div>
-</div>
+        <div class="stat">
+          <div class="stat-name">Speed</div>
+          <div class="bar">
+            <div class="fill" [style.width.%]="(30/255) * 100" [attr.aria-valuenow]="30" aria-valuemin="0"
+              aria-valuemax="30"></div>
+            <div class="stat-val">90</div>
+          </div>
+        </div>
+      </div>
 
-        
+
 
     </section>
 
     <!-- CENTRO: Imagen -->
     <section class="card art">
-      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu" />
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+        alt="Pikachu" />
       <h1 class="name">Pikachu</h1>
       <div class="badge-row">
         <span class="chip">#025</span>
@@ -77,9 +78,18 @@
     <section class="card">
       <h3>Datos</h3>
       <div class="info">
-        <div class="row"><div class="label">Altura</div><div class="value">0.4 m</div></div>
-        <div class="row"><div class="label">Peso</div><div class="value">6.0 kg</div></div>
-        <div class="row"><div class="label">Experiencia</div><div class="value">112</div></div>
+        <div class="row">
+          <div class="label">Altura</div>
+          <div class="value">0.4 m</div>
+        </div>
+        <div class="row">
+          <div class="label">Peso</div>
+          <div class="value">6.0 kg</div>
+        </div>
+        <div class="row">
+          <div class="label">Experiencia</div>
+          <div class="value">112</div>
+        </div>
         <div class="row">
           <div class="label">Habilidades</div>
           <div class="tags">
