@@ -115,3 +115,56 @@ body{
 @media (max-width: 1100px) {
   .grid { grid-template-columns: 1fr; }
 }
+/* Damos perspectiva al contenedor */
+.grid {
+  display: grid;
+  grid-template-columns: 320px 1fr 360px;
+  gap: 20px;
+  perspective: 1200px; /* Para dar profundidad 3D */
+}
+
+/* Todas las cards con transición suave */
+.card {
+  background: #1c1f2e;
+  border: 1px solid #2d3550;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+  padding: 16px;
+  transition: transform 0.6s ease; /* animación de giro */
+  transform-style: preserve-3d;
+}
+
+/* Card izquierda: inclinada hacia la derecha */
+.grid .card:first-child {
+  transform: rotateY(45deg) rotateX(3deg);
+}
+.grid .card:first-child:hover {
+  transform: rotateY(0deg);
+}
+
+/* Card derecha: inclinada hacia la izquierda */
+.grid .card:last-child {
+  transform: rotateY(-45deg) rotateX(3deg);
+}
+.grid .card:last-child:hover {
+  transform: rotateY(0deg);
+}
+.chip {
+  display: inline-flex;        /* usar flex para alinear icono y texto */
+  align-items: center;         /* alinear verticalmente */
+  gap: 4px;                    /* espacio entre texto e icono */
+  background: #2a3550;
+  padding: 4px 8px;            /* menos padding para que no quede grande */
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ccc;
+}
+
+.icon {
+  width: 20px !important;                 /* tamaño pequeño del icono */
+  height: 20px;           /* evitar que se encoja */
+}
+.asterisco:hover .tooltip {
+    visibility: visible;
+    opacity: 1;}

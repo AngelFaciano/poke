@@ -59,19 +59,21 @@
       </div>
 
 
-
     </section>
 
     <!-- CENTRO: Imagen -->
     <section class="card art">
-      <img [src]="j"
-        alt="Pikachu" />
+      <p class="text-light"></p>
       <h1 class="name text-light">{{data().name}} #{{data().id}}</h1>
+      <img [src]="j" alt="Pikachu" />
       <div class="badge-row">
-        <span class="chip">{{data().types[0].type.name}}</span>
+        @for(types of data().types; track types.name){
+        <span class="chip">{{types.type.name}}
+          <img type-icon class="icon" [src]="'icons/' + types.type.name + '.svg'" alt="{{types.type.name}}">
+        </span>
+        }
       </div>
     </section>
-
     <!-- DERECHA: Datos -->
     <section class="card">
       <h3 class="text-light">Datos</h3>
@@ -86,7 +88,7 @@
         </div>
         <div class="row">
           <div class="label">Experiencia</div>
-          <div class="value text-light">{{data().base_experience  }}</div>
+          <div class="value text-light">{{data().base_experience }}</div>
         </div>
         <div class="row">
           <div class="label">Habilidades</div>
@@ -102,6 +104,28 @@
             <span class="chip">thunderbolt</span>
             <span class="chip">iron-tail</span>
             <span class="chip">volt-tackle</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="label">debilidades</div>
+          <div class="tags">
+            @for(tipo of arr();track tipo){
+            <span class="chip">{{tipo.split(' *4')[0]}} <img type-icon class="icon"
+                [src]="'icons/' + tipo.split(' *4')[0] + '.svg'" alt="{{tipo}}">
+              @if(tipo.includes('*')){
+              <span class="asterisco" style="position: relative; cursor: pointer;">
+                *
+                <span class="tooltip" style="visibility: hidden; width: 100px; background-color: black; color: #fff; 
+                       text-align: center; border-radius: 6px; padding: 5px;
+                       position: absolute; z-index: 1; bottom: 125%; left: 50%; 
+                       margin-left: -50px; opacity: 0; transition: opacity 0.3s;">
+                  Hace daño x4
+                </span>
+              </span>
+              }
+            </span>
+            }
+
           </div>
         </div>
       </div>
