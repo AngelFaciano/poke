@@ -1,0 +1,62 @@
+<h3 class="text-light">Datos :</h3>
+<div class="info">
+  <div class="row">
+    <div class="label">Altura :</div>
+    <div class="value text-light">{{ pokemon().height / 10 }} Mts</div>
+  </div>
+  <div class="row">
+    <div class="label">Peso :</div>
+    <div class="value text-light">{{ pokemon().weight / 10 }} kg</div>
+  </div>
+  <div class="row">
+    <div class="label">Experiencia :</div>
+    <div class="value text-light">{{ pokemon().base_experience }} xp</div>
+  </div>
+  <div class="row">
+    <div class="label">Habilidades :</div>
+    <div class="tags">
+      <span class="chip">static</span>
+      <span class="chip">lightning-rod</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="label">Resistencia :</div>
+    <div class="tags">
+       @for(tipo of resistencia(); track tipo) {
+      <span class="chip">
+        {{ tipo.split(" *4")[0] }}
+        <img
+          type-icon
+          class="icon"
+          [src]="'icons/' + tipo.split(' *4')[0] + '.svg'"
+          alt="{{ tipo }}"
+        />
+
+        @if(tipo.includes(' *')) {
+        <span class="este" class="asterisco">* </span>
+        }
+      </span>
+      }
+    </div>
+  </div>
+  <div class="row">
+    <div class="label">debilidades :</div>
+    <div class="tags">
+      @for(tipo of debilidadpoke(); track tipo) {
+      <span class="chip">
+        {{ tipo.split(" *4")[0] }}
+        <img
+          type-icon
+          class="icon"
+          [src]="'icons/' + tipo.split(' *4')[0] + '.svg'"
+          alt="{{ tipo }}"
+        />
+
+        @if(tipo.includes(' *')) {
+        <span class="este" class="asterisco">* </span>
+        }
+      </span>
+      }
+    </div>
+  </div>
+</div>

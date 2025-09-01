@@ -1,0 +1,51 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 125px 1fr; /* primera col fija (label), segunda flexible (contenido) */
+  align-items: start; /* alinea arriba */
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.label {
+  font-weight: bold;
+  color: #ccc;
+}
+
+
+.tags {
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: start;
+}
+.value {
+  font-weight: 500;
+}
+.chip {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #1b2340;
+  color: #fff;
+  font-size: 15px;
+  padding: 2px 2px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+.asterisco {
+  color: yellow;
+  font-weight: bold;
+}
+
+.icon{
+  width:18px !important;
+}

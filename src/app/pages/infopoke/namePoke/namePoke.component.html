@@ -1,0 +1,15 @@
+<h1 class="name text-light">{{ pokemon().name }} #{{ pokemon().id }}</h1>
+<img [src]="imgUrl" alt="img" />
+<div class="badge-row">
+  @for(types of pokemon().types; track types.name){
+  <span class="chip"
+    >{{ types.type.name }}
+    <img
+      type-icon
+      class="icon"
+      [src]="'icons/' + types.type.name + '.svg'"
+      alt="{{ types.type.name }}"
+    />
+  </span>
+  }
+</div>

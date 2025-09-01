@@ -1,135 +1,22 @@
 <div class="container mb-3">
-
   <div class="grid">
-
     <!-- IZQUIERDA: Stats -->
-    <section class="card">
-      <h3 class="fw-bold text-uppercase">Estadísticas base de {{data().name}}</h3>
-      <ul>
-
-      </ul>
-      <div class="stats-list">
-        <div class="stat">
-          <div class="stat-name">HP</div>
-          <div class="bar">
-            <div class="fill" [style.width.%]="p[0]/225*100"></div>
-            <div class="stat-val">{{p[0]}}</div>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-name">Attack</div>
-          <div class="bar">
-            <div class="fill" [style.width.%]="p[1]/225*100"></div>
-            <div class="stat-val">{{p[1]}}</div>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-name">Defense</div>
-          <div class="bar">
-            <div class="fill" [style.width.%]="p[2]/225*100"></div>
-            <div class="stat-val">{{p[2]}}</div>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-name">Special Attack</div>
-          <div class="bar">
-            <div class="fill" [style.width.%]="p[3]/225*100"></div>
-            <div class="stat-val">{{p[3]}}</div>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-name">Special Defense</div>
-          <div class="bar">
-            <div class="fill" [style.width.%]="p[4]/225*100"></div>
-            <div class="stat-val">{{p[4]}}</div>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-name">Speed</div>
-          <div class="bar">
-            <div class="fill" [style.width.%]="p[5]/225*100"></div>
-            <div class="stat-val">{{p[5]}}</div>
-          </div>
-        </div>
-      </div>
-
-
+    <section class="card boxinfo">
+      <app-stastpokemon [pokemon]="pokemon"></app-stastpokemon>
     </section>
 
     <!-- CENTRO: Imagen -->
     <section class="card art">
-      <p class="text-light"></p>
-      <h1 class="name text-light">{{data().name}} #{{data().id}}</h1>
-      <img [src]="j" alt="Pikachu" />
-      <div class="badge-row">
-        @for(types of data().types; track types.name){
-        <span class="chip">{{types.type.name}}
-          <img type-icon class="icon" [src]="'icons/' + types.type.name + '.svg'" alt="{{types.type.name}}">
-        </span>
-        }
-      </div>
+      <app-name-poke [pokemon]="pokemon"></app-name-poke>
     </section>
     <!-- DERECHA: Datos -->
-    <section class="card">
-      <h3 class="text-light">Datos</h3>
-      <div class="info">
-        <div class="row">
-          <div class="label">Altura</div>
-          <div class="value text-light">{{data().height/10}} Mts</div>
-        </div>
-        <div class="row">
-          <div class="label">Peso</div>
-          <div class="value text-light">{{data().weight/10}} kg</div>
-        </div>
-        <div class="row">
-          <div class="label">Experiencia</div>
-          <div class="value text-light">{{data().base_experience }}</div>
-        </div>
-        <div class="row">
-          <div class="label">Habilidades</div>
-          <div class="tags">
-            <span class="chip">static</span>
-            <span class="chip">lightning-rod</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label">Movimientos</div>
-          <div class="tags">
-            <span class="chip">quick-attack</span>
-            <span class="chip">thunderbolt</span>
-            <span class="chip">iron-tail</span>
-            <span class="chip">volt-tackle</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label">debilidades</div>
-          <div class="tags">
-            @for(tipo of arr();track tipo){
-            <span class="chip">{{tipo.split(' *4')[0]}} <img type-icon class="icon"
-                [src]="'icons/' + tipo.split(' *4')[0] + '.svg'" alt="{{tipo}}">
-              @if(tipo.includes('*')){
-              <span class="asterisco" style="position: relative; cursor: pointer;">
-                *
-                <span class="tooltip" style="visibility: hidden; width: 100px; background-color: black; color: #fff; 
-                       text-align: center; border-radius: 6px; padding: 5px;
-                       position: absolute; z-index: 1; bottom: 125%; left: 50%; 
-                       margin-left: -50px; opacity: 0; transition: opacity 0.3s;">
-                  Hace daño x4
-                </span>
-              </span>
-              }
-            </span>
-            }
-
-          </div>
-        </div>
-      </div>
+    <section class="card boxdata">
+      <app-datapokemon [pokemon]="pokemon"></app-datapokemon>
+    </section>
+    <section class="card art">
+      <app-cardpoke class="text-light"></app-cardpoke>
     </section>
 
   </div>
+
 </div>

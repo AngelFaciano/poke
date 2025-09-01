@@ -1,0 +1,15 @@
+<h3 class="fw-bold name text-light text-uppercase">
+  Estadísticas base de {{ pokemon().name }}
+</h3>
+
+<div class="stats-list">
+  @for(stat of stats() ;track stat ){
+  <div class="stat">
+    <div class="stat-name">{{ stat.key }}</div>
+    <div class="bar">
+      <div class="fill" [style.width.%]=" stat.value/255 *100"></div>
+      <div class="stat-val">{{ stat.value }}</div>
+    </div>
+  </div>
+  }
+</div>
